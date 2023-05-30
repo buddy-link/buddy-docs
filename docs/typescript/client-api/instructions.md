@@ -48,12 +48,6 @@ Creates a new member in an organization. Prior to adding the createMember instru
 _Note: In rare cases, it may be necessary to split the instructions into multiple transactions._
 
 ```javascript
-createReferrerMember(organizationName: string, memberName: string): Promise<TransactionInstruction>
-```
-
-Similar to `createMember`, but assumes no referrer is attached to the member, making it more lightweight. It is recommended to use this function only when creating the referrer member before the main member if no referrer needs to be attributed.
-
-```javascript
 createProfile(buddyName: string, referralHash?: string, mint?: PublicKey): Promise<TransactionInstruction[]>
 ```
 

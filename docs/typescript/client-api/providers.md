@@ -8,7 +8,7 @@ Providers are used to retrieve accounts for specific purposes in a more dynamic 
 
 ## Organization
 
-Allows you to retrieve an [organization](/) account to access its configuration information and more
+Allows you to retrieve an organization account to access its configuration information and more
 
 ```javascript
 client.organization.getByPDA(organizationPDA);
@@ -18,7 +18,7 @@ client.organization.getByWallet(wallet);
 
 ## Ambassador
 
-Allows you to retrieve an [ambassador](/) account to access all the readable data of account
+Allows you to retrieve an ambassador account to access all the readable data of account
 
 ```javascript
 client.ambassador.getByOrganizationPDA(organization); // Organization object
@@ -28,7 +28,7 @@ client.ambassador.getByName(ambassadorName);
 
 ## Member
 
-Allows you to retrieve an [member](/) account to access all the readable data of account
+Allows you to retrieve an member account to access all the readable data of account
 
 ```javascript
 client.member.getByPDA(memberPDA);
@@ -39,6 +39,8 @@ client.member.getByTreasuryReferrer(treasuryPDA);
 
 ## Buddy
 
+Allows you to retrieve an buddy account to access all the readable data of account
+
 ```javascript
 client.buddy.getByPDA(buddyPDA);
 client.buddy.getByName(buddyName);
@@ -47,6 +49,8 @@ client.buddy.getProfile(wallet);
 ```
 
 ## Treasury
+
+Allows you to retrieve an treasury account to access all the readable data of account
 
 ```javascript
 client.buddy.getByPDA(treasuryPDA);

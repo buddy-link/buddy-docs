@@ -4,4 +4,4 @@ sidebar_position: 4
 
 # Rust
 
-_coming soon_
+_coming soon._
