@@ -30,7 +30,7 @@ npm install @ladderlabs/buddy-sdk
 
 </Tabs>
 
-Explore our [examples](/examples) for seamless implementation.
+Explore our [examples](/docs/typescript/examples.md) for seamless implementation.
 
 ## Setup
 
