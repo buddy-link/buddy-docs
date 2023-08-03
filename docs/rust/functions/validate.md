@@ -13,6 +13,7 @@ The validate referrer function validates that the referrer that you send (either
 2. Within your instruction you CPI call buddy link to validate the accounts passed
 3. If there is an error from the CPI, error back to the caller because the accounts passed for the referral program are invalid.
 4. If there is a success, then you save the referrer's information on the Account of the user, so when a transfer is required, you can validate against if the destination for the reward is the correct one.
+5. **** This step is optional, as you will see below, there's a notion of _referrer_member_ which is the member of the referrer organization. This is useful if you want to use our on-chain analytics system. If you don't want to use it, then you don't have to save it on your side.
 
 ## Code
 
@@ -24,6 +25,7 @@ The validate referrer function validates that the referrer that you send (either
 pub struct UserAccount
 {
   pub referrer: Pubkey,
+  pub referrer_member: Pubkey //Optional to use on-chain analytics
 }
 
 #[derive(Accounts)]
@@ -43,14 +45,15 @@ pub fn refer_user(ctx: Context<ReferUser>) -> Result<()>
 {
   let user_account = &mut ctx.accounts.user_account;
   
-  let mut referrer_key = ctx.accounts.referrer.key();
-  
-  match validate_referrer(&ctx.accounts.authority, &ctx.accounts.authority, &ctx.remaining_accounts) {
-    Some(parsed_referrer_key) => referrer = parsed_referrer_key,
-    _ => return Err(error!(InvalidReferralProvided)),
-  }
+  let referrer_key = ctx.accounts.referrer.key();
 
-  user_account.referrer = referrer_key;
+  match validate_referrer(&ctx.accounts.authority, &ctx.accounts.authority, &ctx.remaining_accounts) {
+      Some(parsed_pubkeys) => {
+          user_account.referrer = parsed_pubkeys.0;
+          user_account.referrer_member = parsed_pubkeys.1;
+      }
+      _ => return Err(error!(InvalidReferral)),
+  }
 
   Ok(())
 }
@@ -72,6 +75,7 @@ pub fn validate_referrer<'info>(
   Buddy
   Buddy treasury
   Member
+  Referrer member
   Referrer treasury
   Referrer treasury reward
 
@@ -81,7 +85,7 @@ pub fn validate_referrer<'info>(
    */
 
   let remaining_account_length = remaining_accounts.len();
-  if remaining_account_length != 7 && remaining_account_length != 9 {
+  if remaining_account_length != 8 && remaining_account_length != 10 {
     return None;
   }
 
@@ -130,10 +134,16 @@ pub fn validate_referrer<'info>(
     &account_infos,
   ).expect("Error validating referrer");
 
-  Some(if remaining_account_length == 5 {
-    remaining_accounts[5].key() //the treasury pda (if no spl, a.k.a. sol)
+  Some(if remaining_account_length == 8 {
+      (
+          remaining_accounts[7].key(), //the treasury pda (if no spl, a.k.a. sol)
+          remaining_accounts[5].key() //the referrer member
+      )
   } else {
-    remaining_accounts[7].key() //the token account
+      (
+          remaining_accounts[9].key(), //the token account
+          remaining_accounts[5].key() //the referrer member
+      )
   })
 }
 ```
@@ -197,6 +207,11 @@ async function getRemainingAccounts(wallet: PublicKey, mint: PublicKey) {
           pubkey: remainingAccounts.memberPDA,
           isWritable: false,
           isSigner: false,
+        },
+        {
+            pubkey: remainingAccounts.referrerMember,
+            isWritable: false,
+            isSigner: false,
         },
         {
           pubkey: remainingAccounts.referrerTreasury,

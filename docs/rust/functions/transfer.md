@@ -29,6 +29,7 @@ Instruction (Anchor)
 pub struct UserAccount
 {
   pub referrer: Pubkey,
+  pub referrer_member: Pubkey, //optional if you want on-chain analytics
 }
 
 #[derive(Accounts)]
@@ -39,9 +40,6 @@ pub struct TransferRewardReferrer<'info>
 
   #[account()]
   pub user_account: Account<'info, UserAccount>,
-
-  #[account()]
-  pub referrer: UncheckedAccount<'info>,
 
   /// If using SPL for reward, should be present
   #[account()]
@@ -58,6 +56,7 @@ pub fn transfer_reward_referrer(ctx: Context<TransferRewardReferrer>, amount: u6
   if !transfer_reward_to_referrer(
     &ctx.accounts.authority.to_account_info(),
     &ctx.accounts.user_account.referrer,
+    &ctx.accounts.user_account.referrer_member,
     amount,
     &ctx.remaining_accounts,
     &ctx.accounts.token_program.to_account_info(),
@@ -76,6 +75,7 @@ pub fn transfer_reward_referrer(ctx: Context<TransferRewardReferrer>, amount: u6
 pub fn transfer_reward_to_referrers<'info>(
   authority: &AccountInfo<'info>,
   referrer: &Pubkey,
+  referrer_member: &Pubkey,
   amount: u64,
   remaining_accounts: &[AccountInfo<'info>],
   token_program: &AccountInfo<'info>,
@@ -87,14 +87,20 @@ pub fn transfer_reward_to_referrers<'info>(
   -Buddy Link Program
   -Mint
   -Referrer treasury or token account
+  -Referrer member (optional for on-chain analytics)
    */
 
-  if remaining_accounts.len() != 3 {
+  if remaining_accounts.len() != 3 { //or 4 if using on-chain analytics
     return false;
   }
   
   if *referrer != remaining_accounts[2].key() {
     return false;
+  }
+
+  //optional for on-chain analytics
+  if *referrer_member != remaining_accounts[3].key() {
+      return false;
   }
 
   let buddy_link_program = remaining_accounts[0].to_account_info();
@@ -110,6 +116,7 @@ pub fn transfer_reward_to_referrers<'info>(
     AccountMeta::new_readonly(token_program.key(), false), //Token program
     AccountMeta::new(from_account.key(), false),
     AccountMeta::new(remaining_accounts[2].key(), false), //Referrer treasury or token account
+    AccountMeta::new(remaining_accounts[3].key(), false), //Referrer member (optional)
   ];
 
   let mut account_infos = vec![
@@ -119,6 +126,7 @@ pub fn transfer_reward_to_referrers<'info>(
     token_program.to_account_info(),
     from_account.to_account_info(),
     remaining_accounts[2].to_account_info(),
+    remaining_accounts[3].to_account_info(), //Optional
   ];
 
   let mut instruction_data: Vec<u8> = vec![];
@@ -196,6 +204,11 @@ async function getRemainingAccounts(wallet: PublicKey, mint: PublicKey) {
             isWritable: false,
             isSigner: false,
         }),
+        {
+            pubkey: remainingAccounts.referrerMember,
+            isWritable: true,
+            isSigner: false,
+        },
     ];
 }
 ```
