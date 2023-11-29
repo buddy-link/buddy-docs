@@ -5,11 +5,11 @@ sidebar_position: 1
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Quick Start
+# Installation
 
 Developers can easily begin utilizing Buddylink's on-chain tools with the help of this SDK. Please take note that this SDK is still actively being developed, which means there may be changes to the core API and interfaces between versions. However, you are welcome to use it and provide early feedback if you would like to contribute to the project's direction.
 
-## Installation
+## Install package
 
 <Tabs>
   <TabItem value="yarn" label="Yarn" default>
@@ -30,12 +30,10 @@ npm install @ladderlabs/buddy-sdk
 
 </Tabs>
 
-Explore our [examples](/docs/typescript/examples.md) for seamless implementation.
-
 ## Setup
 
 The SDK's entry point is represented by a `Client` instance, providing you with access to its API.
-It receives a Connection instance from @solana/web3.js, enabling communication with the chain, along with an optional wallet that facilitates the construction of instructions with proper authority.
+It receives a Connection instance from [@solana/web3.js](https://www.npmjs.com/package/@solana/web3.js), enabling communication with the chain, along with an optional wallet that facilitates the construction of instructions with proper authority.
 
 ### Script
 
@@ -68,7 +66,7 @@ To further explore potential use cases, refer to the examples provided as a star
 
 ### React wallet adapter
 
-Here's a comprehensive implementation adding the wallet adapter framework.
+Here's a comprehensive implementation adding the wallet adapter framework to use with buddylink.
 
 #### Install the wallet adapter dependencies
 
@@ -144,6 +142,8 @@ export const App = () => {
 For complete usage information, please the visit the [documentation](https://github.com/solana-labs/wallet-adapter/blob/master/APP.md) for the Solana wallet adapter.
 
 #### Usage
+
+Once the wallet adapter is setup you can easily instantiate the buddylink client and start using our program. In the chapter you will
 
 ```javascript
 import { useEffect } from "react";
