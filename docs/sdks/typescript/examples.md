@@ -70,7 +70,9 @@ client.initialize.createMember(organizationName, "bar", "for");
 
 ## 3. Transfer funds
 
-In general, transfers are done through the smart contract by making a cpi call to buddylink (see [Guides](/docs/guides/) for more information) but it can also be done through the SDK. In the example below assume the user is buying an NFT and we are attaching a transfer instruction to the transaction.
+In general, transfers are done through the smart contract by making a cpi call to buddylink but it can also be done through the SDK. In the example below assume the user is buying an NFT and we are attaching a transfer instruction to the transaction.
+
+<!-- (see [Guides](/docs/guides/) for more information) -->
 
 ```javascript
 const client = new Client(connection, wallet.publicKey);

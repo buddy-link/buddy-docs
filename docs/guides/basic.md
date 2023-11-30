@@ -15,7 +15,7 @@ Next.js is a React framework that enables functionalities such as server-side re
 ### Setting Up a Basic Next.js Project
 
 1. **Install Node.js and npm**:<br />
-   Ensure Node.js and npm are installed on your system. You can download them from the[Node.js official website](https://nodejs.org/en).
+   Ensure Node.js and npm are installed on your system. You can download them from the [Node.js official website](https://nodejs.org/en).
 
 2. **Create a Next.js App**:<br />
    Open your terminal and execute the following command to create a new Next.js application:

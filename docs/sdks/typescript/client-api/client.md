@@ -20,7 +20,9 @@ Allows injecting a new wallet into the Client instance. Returns the updated Clie
 
 There are multiple properties in the client used for retrieving accounts and construct instructions
 
-#### [Organization Provider](/docs/typescript/client-api/providers.md?id=organization)
+#### Organization Provider
+
+<!-- (/docs/typescript/client-api/providers.md?id=organization) -->
 
 ```javascript
 const organizationProvider = client.organization;
@@ -28,7 +30,9 @@ const organizationProvider = client.organization;
 
 Represents a provider that allows you fetch organization accounts.
 
-#### [Member Provider](/docs/typescript/client-api/providers.md?id=member)
+#### Member Provider
+
+<!-- (/docs/typescript/client-api/providers.md?id=member) -->
 
 ```javascript
 const memberProvider = client.member;
@@ -36,7 +40,9 @@ const memberProvider = client.member;
 
 Represents a provider that allows you fetch member accounts.
 
-#### [Treasury Provider](/docs/typescript/client-api/providers.md?id=treasury)
+#### Treasury Provider
+
+<!-- (/docs/typescript/client-api/providers.md?id=treasury) -->
 
 ```javascript
 const treasuryProvider = client.treasury;
@@ -44,7 +50,9 @@ const treasuryProvider = client.treasury;
 
 Represents a provider that allows you fetch treasury accounts.
 
-#### [Buddy Provider](/docs/typescript/client-api/providers.md?id=buddy)
+#### Buddy Provider
+
+<!-- (/docs/typescript/client-api/providers.md?id=buddy) -->
 
 ```javascript
 const buddyProvider = client.buddy;
@@ -52,7 +60,9 @@ const buddyProvider = client.buddy;
 
 Represents a provider that allows you fetch buddy accounts.
 
-#### [Ambassador Provider](/docs/typescript/client-api/providers.md?id=ambassador)
+#### Ambassador Provider
+
+<!-- (/docs/typescript/client-api/providers.md?id=ambassador) -->
 
 ```javascript
 const ambassadorProvider = client.ambassador;
@@ -64,7 +74,9 @@ Represents a provider that allows you fetch ambassador accounts.
 
 Builders are used to create instructions for multiple purposes. These functions can also be found in models for specific purposes related that specific account.
 
-#### [Transfer Builder](/docs/typescript/client-api/instructions.md?id=transfer)
+#### Transfer Builder
+
+<!-- (/docs/typescript/client-api/instructions.md?id=transfer) -->
 
 ```javascript
 const transferBuilder = client.transfer;
@@ -72,7 +84,9 @@ const transferBuilder = client.transfer;
 
 Allows you to build transfer instructions.
 
-#### [Initialize Builder](/docs/typescript/client-api/instructions.md?id=initializer)
+#### Initialize Builder
+
+<!-- (/docs/typescript/client-api/instructions.md?id=initializer) -->
 
 ```javascript
 const initializeBuilder = client.initialize;
@@ -80,7 +94,9 @@ const initializeBuilder = client.initialize;
 
 Allows you to create accounts for specific functions.
 
-#### [NFT Builder](/docs/typescript/client-api/instructions.md?id=nft)
+#### NFT Builder
+
+<!-- (/docs/typescript/client-api/instructions.md?id=nft) -->
 
 ```javascript
 const nftBuilder = client.nft;
