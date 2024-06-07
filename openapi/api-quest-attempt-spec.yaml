@@ -1,0 +1,233 @@
+openapi: 3.0.0
+info:
+  title: Quest Attempt API
+  version: 1.0.0
+
+servers:
+  - url: https://{basePath}
+    variables:
+      basePath:
+        default: ApiStage
+
+paths:
+  /attempt/{pk}/{sk}/details:
+    options:
+      operationId: options-attempt-details
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      parameters:
+        - $ref: "#/components/parameters/pk"
+        - $ref: "#/components/parameters/sk"
+      security: [ ]
+
+    get:
+      summary: Get quest attempt details
+      description: "Get the details of a quest attempt"
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetQuestAttemptDetails.Arn}/invocations"
+      x-amazon-apigateway-repoint-validator: all
+      parameters:
+        - $ref: "#/components/parameters/pk"
+        - $ref: "#/components/parameters/sk"
+      responses:
+        '200':
+          description: The details of the quest
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuestAttemptDetails"
+
+  /attempt:
+    options:
+      operationId: options-attempt
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      security: [ ]
+
+    post:
+      summary: Make an attempt at a quest
+      description: "Attempt at a quest will be passed to a queue for processing"
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${SubmitQuestAttempt.Arn}/invocations"
+      x-amazon-apigateway-repoint-validator: all
+      requestBody:
+        $ref: "#/components/requestBodies/QuestAttempt"
+      responses:
+        '200':
+          description: A list of points
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubmitQuestAttemptResponse"
+
+components:
+  parameters:
+    questID:
+      name: questID
+      in: path
+      required: true
+      schema:
+        type: string
+      description: "The ID of the quest to attempt"
+
+    pk:
+      name: pk
+      in: path
+      required: true
+      schema:
+        type: string
+      description: "The PK ID of the quest attempt"
+
+    sk:
+      name: sk
+      in: path
+      required: true
+      schema:
+        type: string
+      description: "The SK ID of the quest attempt"
+
+  requestBodies:
+    QuestAttempt:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - questID
+              - userID
+              - args
+            properties:
+              questID:
+                type: string
+              userID:
+                type: string
+              args:
+                type: object
+                description: "Arguments for the quest, e.g. the twitter handle that has to follow the account"
+                additionalProperties: true
+
+    GetQuestAttemptDetails:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - Pk
+              - Sk
+            properties:
+              Pk:
+                type: string
+              Sk:
+                type: string
+
+  schemas:
+    SubmitQuestAttemptResponse:
+      type: object
+      required:
+        - Pk
+        - Sk
+        - QuestName
+        - UserId
+        - Status
+      properties:
+        Pk:
+          type: string
+        Sk:
+          type: string
+        QuestName:
+          type: string
+        UserId:
+          type: string
+        Status:
+          type: string
+
+    QuestAttemptDetails:
+      type: object
+      required:
+        - QuestId
+        - Args
+        - Status
+        - AttemptedAt
+      properties:
+        QuestId:
+          type: string
+        Args:
+          type: object
+          additionalProperties: true
+        Status:
+          type: string
+        AttemptedAt:
+          type: string
+          format: date-time

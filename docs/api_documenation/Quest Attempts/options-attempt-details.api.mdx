@@ -1,0 +1,171 @@
+---
+id: options-attempt-details
+title: "options-attempt-details"
+description: "options-attempt-details"
+sidebar_label: "options-attempt-details"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVb1u2zAQfhXilrQFZbkZuRnJUKNo7cbpFHtgrLPFWiIZ8pTEFfjuhSjJdtI4QY0CXTqJEnnHu+/nVIOx6CQpo8cZCDC2WfpEEmFpKcmQpCo8cHDordEePYgazofD5pGhXzoVQ0DAJa5kVRDrT7KVcexicjVjJVJuMuCQo8zQxRSj5RK9Ty6MJmeKZFQU5iGZOLVWutn2yxxL2axoaxEEeHJKryEE/nLol3iHPyn2076s47GBw9JoQk0g6vj6mMhS/jQ6kVatJeGD3CZKE65bQA+SlGa5iRjeVejpGktbSGqhlNYWahkD0h8+AlnPNWNz8CSp8hcmwzkwwc6Hw7kOcw3hGRlZi3usfhcCIpK0PzqVTpZIXZstI4N+c9ASM3gdHTj7cAb8j2J3rJwQ24shhh40/SZ8EaTIkD1o+qYGLcsGGNtwETNbSXnHi3KYgSBXIT8uAv5M8tc5sulnNr5kZsUoRxb5ZZ17IPDdnf6v3jl75c4FB4/LyinagrhZPA8/7nB8JNS+2YxgbXAL4k2Nc7iXRYX/tf6Ptd7Q3o3ZHcfAW7EJSDu209puQlr7TUj3vHt0971DKleAgJzIepGm9a1swKQ8RJ6dkrdFW0q/8YQTGFk1I7lGaOtRemWiMBQVDUnfolBHbSlsNB03WdH5VpgfB8PBsOndGk+ljOOzM89xzT7R9k6ChI+U2kKqKKDYU91BcQO9UTiIOAhEtGafcsEhN56ag3Vs/7srQmg+31XoOkf1UETIMuWbdQZiJQuPv9W0+2nAu6vO8+/ZG4ODv9xJ91Hq7d53ALyzqt3EgXNyPa8MlZPq8RsIi3Agy8n0ejz5OoMQfgGJae4d
+sidebar_class_name: "options api-method"
+info_path: api_documenation/Quest Attempts/quest-attempt-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"options-attempt-details"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"options"}
+  path={"/attempt/{pk}/{sk}/details"}
+>
+  
+</MethodEndpoint>
+
+
+
+options-attempt-details
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"pk","in":"path","required":true,"schema":{"type":"string"},"description":"The PK ID of the quest attempt"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"sk","in":"path","required":true,"schema":{"type":"string"},"description":"The SK ID of the quest attempt"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Default response for CORS method
+          
+          
+        </div><details
+          style={{"textAlign":"left","marginBottom":"1rem"}}
+          className={"openapi-markdown__details"}
+          data-collaposed={true}
+          open={false}
+        >
+          <summary
+            style={{}}
+          >
+            <strong>
+              Response Headers
+            </strong>
+          </summary><ul
+            style={{"marginLeft":"1rem"}}
+          >
+            <li
+              className={"schemaItem"}
+            >
+              <summary
+                style={{}}
+              >
+                <strong>
+                  Access-Control-Allow-Origin
+                </strong><span
+                  style={{"opacity":"0.6"}}
+                >
+                   string
+                </span>
+              </summary><div>
+                
+              </div>
+            </li><li
+              className={"schemaItem"}
+            >
+              <summary
+                style={{}}
+              >
+                <strong>
+                  Access-Control-Allow-Methods
+                </strong><span
+                  style={{"opacity":"0.6"}}
+                >
+                   string
+                </span>
+              </summary><div>
+                
+              </div>
+            </li><li
+              className={"schemaItem"}
+            >
+              <summary
+                style={{}}
+              >
+                <strong>
+                  Access-Control-Allow-Headers
+                </strong><span
+                  style={{"opacity":"0.6"}}
+                >
+                   string
+                </span>
+              </summary><div>
+                
+              </div>
+            </li>
+          </ul>
+        </details><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

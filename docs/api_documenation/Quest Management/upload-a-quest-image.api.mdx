@@ -1,0 +1,170 @@
+---
+id: upload-a-quest-image
+title: "Upload a quest image"
+description: "This endpoint will return a presigned url to upload a quest image. It will also set the quest image for the quest. Note: Quest id follows format {quest_id}_{owner}"
+sidebar_label: "Upload a quest image"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVb1uIzcQfhVi4CIJKK3sQxp2KnyJivM5lpwUhmCMliMtL1ySR3ItKwu+e0CuZMl3sosgTYCoWWFIDme+n2EPkkLtlYvKGhCwaFRgZKSzykS2VVozT7HzhiFznoLaGJKs85pFyzqnLUqG7GtHITLV4obGbLY/hzpYFiiy2NDpDra2/hgbsxsbSbDfhg2Sra3WdhvyrhYj68uuRyXTY2+3hnwCDs8jbPEva0bo1AYjbXE3qq0PIHrAfPyzVxtlAogH+AmWfAj+SijJfxP8RLGxsgR/uV7AMp3PrkykjccBpR4c7nLrH0uNv5MPA3pX4wlwiDtHIAC34dF5+7wDDk2MbrgJBNx+ni+AQ22NoTpnXAwHZjeL67ub67LmSZKJCnXp6aMRYt6tclJvBG6DUNgKcdFP/5gLMa1r25k4k0l4q6ladVLuqkD+SdU0KqGLfurUndV0gy0lSBw6r85nPjZ9yH9HG2VNEhrblUThMDbV1eTy59Hkw+jDZbXuTOkiVBf9fVFE4XJW1DD1JlXKPNm6YBcgvQGwp0L06Am1khitzyVpDRwcemwpDsz1YLDNYB1kARxUhj5XBRxyGuVJgoi+Iw6hbqjF3OmelRC9MhtIaZk3B2dNoILx1WSSP6/tMO/qmkJYd5pZR3v+C3WRTCxyc06robnqSxjU8d2ldvWF6ph78TlNVMOVL4a69/pMiRyKX84vDj8O9BzJhAJtRudP2oF42x8cnlB39G/4JPH3bjv1y8ml//vmn/vmfcC/988L7MVHWe/tAUlnQ1Fj9oyAqpwM1XHUVkV4wCGDcTBel3VYGAmiqvoVBrrF2KRykVe40oOqDwuDm9bY6QgCpk7NY06aivWUWduiahV1LnEY/5/Q4IZaMpFNb2c58YtELseT8SQTkGtvsfhsPwruzzxDwF87uT969j/yxu3dEOk5Vk6jMoP69GCjDO/DMASzq8XpOCz9Lzk0mWXxAH3h6t7rlHL4a0d+B+JheeSt8CtVyP8liDXqQO8A+MPdfsr+yN4q9OBlszvRIfC9gF+qTfm9bcq8ORlf07omF08F/O2QfaXmMhdS+hvfRRCD
+sidebar_class_name: "post api-method"
+info_path: api_documenation/Quest Management/quest-management-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Upload a quest image"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/quests/{quest_id}/image"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint will return a presigned url to upload a quest image. It will also set the quest image for the quest. Note: Quest id follows format \{quest_id\}_\{owner\}
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"quest_id","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Successful operation
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"presignedUrl"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"imageUrl"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"presignedUrl\": \"string\",\n  \"imageUrl\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,206 @@
+---
+id: credit-points-to-a-user
+title: "Credit points to a user"
+description: "This endpoint returns all points"
+sidebar_label: "Credit points to a user"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1z2zYQ/SucnRzaDmXKzvSCm5o4Ux/ieGynPTiazopcUUhBAAFAywyH/72zAGXKn3Wda3WxDVK7b9++9+AeKvKlkzZIo0HA5Ub6jHRljdQhcxRap32GSmXxxEMONzNs8LvRM7SyxkBb7GalcR5ED6iU2X5yspbag7iCX2CZp8PfCSty9w4/UtiYKh6efbq4hOXweHmpA9UOE8YeLHbKYPXBuAbDH+R8wn50MIccQmcJBODW/2Wduekgh00INrUCkRrlUBqtqeSKl+kLJ6eXx+enx/GZo4p0kKjiUB+0EBftios6LXDrhcRGiDf94s8LIRZlaVodTqpBOKOoWLVV1RWe3LUsaRaP3vQLK8+NolNsaIAhh9bJxytPQ+/qn1MtjR6EwmZVobAYNsXR/PDX2fzt7O1hsW51nMIXb/p3jioZzuKiLs1nT+5g4fRQSH1tysieh+EJih3FBc+uUckKg3EMSinIwaLDhkJaXg8aG6ar9eRO3kMOkqlnVJCDo2+tdFSBCK6lHHy5oQZ50nErPjipa2bgvuwo44rZyfvMrLOw+zOYrKYwai9bGwdDfguBVxS6uL7XwciBdNuw+rgZ5FA709qowofwUreMK/wbxGWCQD78ZqqO+5ZGB9IhWsRaJdM2iq8+CfoBQLP6SmWAx3CMlbOVqTpul5Vx61LXk0UnAq7gGlVL8Qy52zIH64wlFyRFdafnU+votcjG3d48sG6bFTkefxw3mLE9r3Ts8AjNDyuld+/h5wfjDEP8cE1vjfYJ6tF8zj/uVltkSvowYUre/k9s71SZWtJNIO2jWVjvf1MH4unQyycCfzj8WNtPt9sPwb2u/4fhj4Th85Q/DMVb4mM4stObHZfW+BDjMmxAQJHUWPRTSg1Fn1JzgByYk12ktk6BiIvxoij6FXo6w7AZYjcncaWS/ncPkgnW2KrABrDyImBNPM0yB1b5+ZQ+xzfYWEV7Tp9PTt3LY6nXJlpCBn4bInHZR9RYU0M6ZIuzE8ZzK7DDg/nBnL/JczcYnTUGc6J+LyMwGwP2jnX3YvEl/3eMWg50EwqrUOqkHZVMwKxcwe3L4s7lIMbbapnDhrckrqCPNH92ahj4+FtLrgNxtZwoj6uppOffKxBrVJ6emeCn8zF0f85efps9MdXOtrrbExzko1LHYVi6r4b38tvsVRD32B/4Ot3EANzL03cJ2Gxc0K2p7sf15M9FWZINz76778Yx2VbjBdyYir/jcMtXIW5BwBf4woCNTVkg+nTeg0Jdt2woAakuf/4B3h/dNA==
+sidebar_class_name: "post api-method"
+info_path: api_documenation/Points/point-management-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Credit points to a user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/points/{entityType}/{userID}"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint returns all points
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"userID","in":"path","required":true,"schema":{"type":"string"},"description":"The user ID of the user to get points for"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"entityType","in":"path","required":true,"schema":{"type":"string","enum":["user","group"]},"description":"The entity type of the user to get points for"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"value"}
+          required={true}
+          schemaName={"integer"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","description":"the number of points to credit"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"reason"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"the reason for crediting the points"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          A list of points
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        string
+                        
+                        
+                      </div>
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

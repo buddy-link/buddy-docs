@@ -1,0 +1,239 @@
+---
+id: get-top-points-for-entity-type
+title: "Get top points for entity type"
+description: "Will return a list of entities of the given type with the most points"
+sidebar_label: "Get top points for entity type"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVU1v4zYQ/SvCIIe2kCMni1548yFJc9hskLjNITCKsTSWuKVILjmyowr67wVJO7bzBXSxx/XFwpAz5Lz35nGAinzppGVpNAh4kEpljrhzOsNMSc+ZWWWkWbIkH765oayWa9IZ95ayjeQmxlrjObNGavaQw9MEW/zX6AlaWSPTBvtJaZwHMQAqZTZfnKyl9iAe4TdY5Cn4B2FF7kXwM3Fjqhi8upjDYny7utRMtcPUxwAWe2WwujSuRf6LnE/9nZ9OIYdwcxCAG/+3deaphxwaZptOAgG3X+7nkENptKYyVJynhOub+cXdzUVcc1QFWFDFni61EPfdMhR1WuDGC4mtECfD7OFeiFlZmk7zdTUKZxQVy66q+sKTW8uSJjF0MsysvDOKbrClEcYcOiffrrxvelf/jmpp9CgUtssKhUVuivPp2e+T6afJp7Ni1enYhS9OhiviubGXxl0ETvvTmdNjIfXalBE6D+M7+DqK5E7WqGSFbFy4kVKQg0WHLXEibgCNbcAqaqaPwOUgA/bhWpCDo2+ddFSBYNdRDr5sqMXQ6pYWz07qGnIg3bWB9s6TgxxqZzob+T/W7LyhpNA+SXIr0pCVsclq2ukyWxkH4yJcwVujPUXqzqfT8Hdcc/as/WdJl0YzaY4KtlbJBFjx1SfBvWoDncOgLMnU+jfixwe+MWzvjNbLemb5lUo+AvYxkZADG0YVJsk6Y8mFsiEzUfQa8OMr8R7XmDDu6u0z49BFcl6nxr2Z7toluT2QgYOMG+m3paPeWLIK5ZImHyQ3t6nbg7W5sWn5bksejPGXAz0xaR/FG/T3D/Ug3jegHNaoOvoRRjTmH512aEgHh/40pu82po/xfm1Qz6hHowqD3+6ArImjc3EDAookzWLYe9ZYsLGQQ4BiZ2ydUyAiH14UxbBET7fIzRjPcRKXKk3XbiG5ygo7xcFRrLxnrKNsF8ERVyYO0lbeUfDZZ9RYU0uas9ntdSj8LJCz0+npNMBvjecW9X6O4Yo4Y2MPJ+zAD18O57B3sh/23G91y/TEhVUoddKJSoIPUDzC82Zx9DQEnBc5NMZz2DVEXP90ahxD+FtHrgfxuNhjHLmopA/fFYgVKk8ftPjL3dYWf83+30PxTle7EdX9gb4g3wrzoLUxvFRNNJIDX5qVJVk+lObLt+RIp8FoxvE//IhZ6w==
+sidebar_class_name: "get api-method"
+info_path: api_documenation/Points/point-management-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get top points for entity type"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/points/{entityType}/top"}
+>
+  
+</MethodEndpoint>
+
+
+
+Will return a list of entities of the given type with the most points
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"entityType","in":"path","required":true,"schema":{"type":"string","enum":["user","group"]},"description":"The entity type of the user to get points for"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          A list of points
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={false}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={"array"}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"description"}
+                        required={false}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={"a list of entities with the most points"}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                items
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"name"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"the entity name"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"total"}
+                              required={true}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","description":"the total number of points for this entity"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"title"}
+                        required={false}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={"TopEntityResponse"}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  [\n    {\n      \"name\": \"string\",\n      \"total\": 0\n    }\n  ]\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
