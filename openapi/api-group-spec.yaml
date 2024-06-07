@@ -1,0 +1,607 @@
+openapi: 3.0.0
+info:
+  title: Group Management API
+  version: 1.0.0
+
+servers:
+  - url: https://{basePath}
+    variables:
+      basePath:
+        default: ApiStage
+
+paths:
+  /groups:
+    options:
+      operationId: options-groups
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      security: [ ]
+
+    get:
+      summary: Retrieve all groups
+      description: "This endpoint retrieves all groups"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - GET
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetGroups.Arn}/invocations"
+      x-amazon-apigateway-request-validator: all
+      parameters:
+        - $ref: '#/components/parameters/UserIdQueryParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupList'
+
+    post:
+      summary: Create a new group
+      description: "This endpoint creates a new group"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - POST
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${CreateGroup.Arn}/invocations"
+      x-amazon-apigateway-request-validator: all
+      parameters:
+        - $ref: '#/components/parameters/UserIdHeaderParam'
+      requestBody:
+        $ref: '#/components/requestBodies/CreateGroupBody'
+      responses:
+        '200':
+          description: Group created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupName'
+
+  /groups/{group_name}:
+    options:
+      operationId: options-groups-group_name
+      parameters:
+        - $ref: '#/components/parameters/GroupNamePathParam'
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      security: [ ]
+
+    get:
+      summary: Retrieve currently active members of a group
+      description: "This endpoint retrieves all members of a group"
+      x-amazon-apigateway-cors:
+          allowOrigins:
+          - "*"
+          allowHeaders:
+          - "*"
+          allowMethods:
+          - GET
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetCurrentlyActiveGroupMembers.Arn}/invocations"
+      x-amazon-apigateway-request-validator: all
+      parameters:
+        - $ref: '#/components/parameters/GroupNamePathParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemberList'
+
+    post:
+      summary: Add a user to a group (as a group admin)
+      description: "This endpoint adds a user to a group"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - POST
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${AddUserToGroup.Arn}/invocations"
+      x-amazon-apigateway-request-validator: all
+      parameters:
+        - $ref: '#/components/parameters/GroupNamePathParam'
+      requestBody:
+        $ref: '#/components/requestBodies/UserEmailBody'
+      responses:
+        '200':
+          description: User added successfully
+
+    delete:
+      summary: Remove the specified user from a group
+      description: "This endpoint removes a user from a group"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - DELETE
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${RemoveUserByIDFromGroup.Arn}/invocations"
+      x-amazon-apigateway-request-validator: all
+      parameters:
+        - $ref: '#/components/parameters/GroupNamePathParam'
+        - $ref: '#/components/parameters/UserIdHeaderParam'
+      responses:
+        '200':
+          description: User removed from group successfully
+
+  /groups/{group_name}/remove:
+    options:
+      operationId: options-groups-group_name-remove
+      parameters:
+        - $ref: '#/components/parameters/GroupNamePathParam'
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      security: [ ]
+
+    post:
+      summary: Remove a user from a group (a group admin removing a user)
+      description: "This endpoint removes a user from a group"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - POST
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${RemoveUserByEmailFromGroup.Arn}/invocations"
+      x-amazon-apigateway-request-validator: all
+      x-amazon-apigateway-api-key-source: HEADER
+      x-amazon-apigateway-api-key-required: true
+      parameters:
+        - $ref: '#/components/parameters/GroupNamePathParam'
+      requestBody:
+        $ref: '#/components/requestBodies/UserEmailBody'
+      responses:
+        '200':
+          description: User removed successfully
+
+
+  /groups/{group_name}/history:
+    options:
+      operationId: options-groups-group_name-history
+      parameters:
+        - $ref: '#/components/parameters/GroupNamePathParam'
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      security: [ ]
+
+    get:
+      summary: Retrieve join/exit history of a group for calculating rewards
+      description: "This endpoint retrieves the join/exit history of a group"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - GET
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetHistoryOfGroup.Arn}/invocations"
+      x-amazon-apigateway-request-validator: all
+      x-amazon-apigateway-api-key-source: HEADER
+      x-amazon-apigateway-api-key-required: true
+      parameters:
+        - $ref: '#/components/parameters/GroupNamePathParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JoinExitHistory'
+
+  /groups/{group_name}/image:
+    options:
+      operationId: options-groups-group_name-image
+      parameters:
+        - $ref: '#/components/parameters/GroupNamePathParam'
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      security: [ ]
+
+    post:
+      summary: Upload a group image
+      description: "This endpoint will return a presigned url to upload a group image. It will also set the group image for the group"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - GET
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${UploadGroupImage.Arn}/invocations"
+      x-amazon-apigateway-request-validator: all
+      x-amazon-apigateway-api-key-source: HEADER
+      x-amazon-apigateway-api-key-required: true
+      parameters:
+        - $ref: '#/components/parameters/GroupNamePathParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  presignedUrl:
+                    type: string
+                  imageUrl:
+                    type: string
+
+security:
+  - rate-limiting-api-keys: []
+
+components:
+  securitySchemes:
+    rate-limiting-api-keys:
+      type: "apiKey"
+      name: "x-api-key"
+      in: "header"
+      x-amazon-apigateway-authtype: "custom"
+      x-amazon-apigateway-authorizer:
+        identitySource: "method.request.header.x-api-key"
+        type: "request"
+        authorizerUri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${AuthoriserArn}/invocations"
+        authorizerCredentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${AuthoriserRoleArn}"
+        authorizerResultTtlInSeconds: 0
+
+  parameters:
+    UserIdHeaderParam:
+      name: user_id
+      in: header
+      required: true
+      schema:
+        type: string
+
+    UserIdQueryParam:
+      name: user_id
+      in: query
+      required: false
+      schema:
+        type: string
+
+    GroupNamePathParam:
+      name: group_name
+      in: path
+      required: true
+      schema:
+        type: string
+
+  requestBodies:
+    CreateGroupBody:
+      description: "Group name to be created"
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateGroupBody'
+
+    UploadGroupImageBody:
+      description: "Group image to be uploaded"
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              groupName:
+                description: "Group name"
+                example: "staratlas"
+                type: string
+              extension:
+                description: "Image extension (png, jpg, jpeg) of the image"
+                example: "png"
+                type: string
+
+    UserEmailBody:
+      description: "User email to be added to a group"
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+              walletPublicKey:
+                type: string
+  schemas:
+    GroupEntity:
+      type: object
+      required:
+        - group_name
+        - group_image
+        - total_members
+        - total_points
+      properties:
+        group_name:
+          type: string
+        total_members:
+          type: integer
+        total_points:
+          type: integer
+        group_image:
+          type: string
+
+    GroupList:
+      type: object
+      required:
+        - groups
+      properties:
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupEntity'
+
+    MemberList:
+      type: object
+      required:
+        - members
+      properties:
+        members:
+          type: array
+          items:
+            type: object
+            required:
+              - user_id
+              - total_points
+            properties:
+              user_id:
+                type: string
+              total_points:
+                type: integer
+
+    JoinExitHistory:
+      type: array
+      required:
+        - joined_at
+        - user_id
+      items:
+        type: object
+        properties:
+          user_id:
+            type: string
+          joined_at:
+            type: string
+            format: date-time
+          left_at:
+            type: string
+            format: date-time
+
+    GroupName:
+      type: object
+      required:
+        - group_name
+      properties:
+        group_name:
+          type: string
+
+    CreateGroupBody:
+      type: object
+      required:
+        - group_name
+        - group_image
+      properties:
+        group_name:
+          type: string
+        group_image:
+          type: string

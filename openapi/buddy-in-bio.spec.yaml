@@ -1,0 +1,163 @@
+openapi: 3.0.0
+info:
+  title: Bio API
+  version: 1.0.0
+paths:
+  /bio:
+    get:
+      summary: Get currently authenticated user's bio
+      security:
+        - iamAuth: [ ]
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  query_time:
+                    type: string
+                  bio:
+                    type: object  # Assuming 'Bio' structure
+                    properties:
+                      username:
+                        type: string
+                      walletPublicKey:
+                        type: string
+                      bioText:
+                        type: string
+                      profilePicture:
+                        type: string
+                      socialLinks:
+                        type: object
+                        required:
+                          - linkType
+                          - link
+                        properties:
+                          linkType:
+                            type: string
+                          link:
+                            type: string
+                          active:
+                              type: boolean
+    post:
+      summary: Create user's bio
+      security:
+        - iamAuth: [ ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBioRequest'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  query_time:
+                    type: string
+                  bio:
+                    $ref: '#/components/schemas/BioResponse'
+  /bio/{uniqueLink}:
+    get:
+      summary: Get bio by unique link
+      parameters:
+        - in: path
+          name: uniqueLink
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BioResponse'
+  /bio/upload-image:
+    post:
+      summary: Get presigned URL for uploading profile picture
+      security:
+        - iamAuth: [ ]  # Applying IAM authentication specifically to this endpoint
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadProfilePictureRequest'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  query_time:
+                    type: string
+                  presignedLink:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+components:
+  securitySchemes:
+    iamAuth:
+      type: apiKey
+      name: Authorization
+      in: header
+      x-amazon-apigateway-authtype: awsSigv4
+  schemas:
+    CreateBioRequest:
+      type: object
+      properties:
+        Username:
+          type: string
+        WalletPublicKey:
+          type: string
+        BioText:
+          type: string
+        ProfilePicture:
+          type: string
+        SocialLinks:
+          type: array
+          items:
+            $ref: '#/components/schemas/SocialLink'
+        UserSettings:
+          type: object
+    SocialLink:
+      type: object
+      properties:
+        LinkType:
+          type: string
+        Link:
+          type: string
+    BioResponse:
+      type: object
+      properties:
+        username:
+          type: string
+        walletPublicKey:
+          type: string
+        bioText:
+          type: string
+        profilePicture:
+          type: string
+        socialLinks:
+          type: string
+    UploadProfilePictureRequest:
+      type: object
+      properties:
+        fileName:
+          type: string

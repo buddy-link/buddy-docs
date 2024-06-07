@@ -1,0 +1,376 @@
+openapi: 3.0.0
+info:
+  title: Quest Management API
+  version: 1.0.0
+
+servers:
+  - url: https://{basePath}
+    variables:
+      basePath:
+        default: ApiStage
+
+paths:
+  /quests:
+    options:
+      operationId: options-quest
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      security: [ ]
+
+    get:
+      summary: Get all quests
+      description: "This endpoint returns all quests"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - GET
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetQuests.Arn}/invocations"
+      x-amazon-apigateway-request-validator: all
+      parameters:
+        - $ref: '#/components/parameters/OwnerQueryParam'
+        - $ref: '#/components/parameters/QuestStatusQueryParam'
+      responses:
+        '200':
+          description: A list of quests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Quest'
+
+    post:
+      summary: Create a new quest
+      description: "This endpoint creates a new quest"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - POST
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${CreateNewQuest.Arn}/invocations"
+      x-amazon-apigateway-request-validator: all
+      requestBody:
+        $ref: '#/components/requestBodies/CreateQuestBody'
+      responses:
+        '200':
+          description: Quest created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quest'
+
+  /quests/{quest_id}:
+    options:
+      operationId: options-quest-id
+      parameters:
+        - $ref: '#/components/parameters/QuestIdParam'
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      security: [ ]
+
+    post:
+        summary: Update a quest
+        description: "This endpoint updates a quest"
+        x-amazon-apigateway-cors:
+          allowOrigins:
+            - "*"
+          allowHeaders:
+            - "*"
+          allowMethods:
+            - POST
+        x-amazon-apigateway-integration:
+          payloadFormatVersion: "2.0"
+          type: "aws_proxy"
+          httpMethod: "POST"
+          connectionType: "INTERNET"
+          credentials:
+            Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+          uri:
+            Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${EditQuest.Arn}/invocations"
+        x-amazon-apigateway-request-validator: all
+        parameters:
+          - $ref: '#/components/parameters/QuestIdParam'
+        requestBody:
+            $ref: '#/components/requestBodies/CreateQuestBody'
+        responses:
+          '200':
+            description: Quest updated
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Quest'
+
+
+  /quests/{quest_id}/image:
+    options:
+      operationId: options-quest-image
+      parameters:
+        - $ref: '#/components/parameters/QuestIdParam'
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      security: [ ]
+
+    post:
+      summary: Upload a quest image
+      description: "This endpoint will return a presigned url to upload a quest image. It will also set the quest image for the quest. Note: Quest id follows format {quest_id}_{owner}"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - GET
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${UploadQuestImage.Arn}/invocations"
+      x-amazon-apigateway-request-validator: all
+      parameters:
+        - $ref: '#/components/parameters/QuestIdParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  presignedUrl:
+                    type: string
+                  imageUrl:
+                    type: string
+
+
+components:
+  parameters:
+    OwnerQueryParam:
+      name: owner
+      in: query
+      required: false
+      schema:
+        type: string
+    QuestStatusQueryParam:
+      name: status
+      in: query
+      required: false
+      schema:
+          type: string
+          enum:
+            - active
+            - inactive
+    QuestIdParam:
+      name: quest_id
+      in: path
+      required: true
+      schema:
+        type: string
+
+  requestBodies:
+    CreateQuestBody:
+      description: "Quest to be created"
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Quest'
+
+  schemas:
+    Quest:
+      type: object
+      required:
+        - name
+        - config
+        - image
+        - displayName
+        - status
+        - owner
+      properties:
+        name:
+          type: string
+          description: a unique name for the quest
+        owner:
+          type: string
+          description: the primary owner of the quest, an id from the buddy-auth service (e.g. GET /user)
+        image:
+          type: string
+          description: a unique name for the quest
+        displayName:
+          type: string
+          description: a vanity name for the quest
+        status:
+          type: string
+          enum:
+            - active
+            - inactive
+          description: the status of the quest
+        config:
+          $ref: '#/components/schemas/QuestConfig'
+        trigger:
+          $ref: '#/components/schemas/QuestTrigger'
+
+    QuestTrigger:
+      type: object
+      required:
+        - type
+        - provider
+        - args
+      properties:
+        type:
+          type: string
+          description: the type of trigger (e.g. webhook, cron, social)
+        provider:
+          type: string
+          description: the provider of the trigger (e.g. twitter, github, cron)
+        args:
+          type: object
+          description: the arguments for the trigger, see documentation for each provider
+
+    QuestConfig:
+        type: object
+        required:
+          - pointValue
+          - repeatFrequency
+          - useLastSuccessAsEpoch
+          - MaximumTimeToComplete
+          - timezone
+          - repeatLimit
+        properties:
+          pointValue:
+            type: integer
+            description: the number of points the quest is worth
+          repeatFrequency:
+            type: string
+            enum:
+              - none
+              - hourly
+              - daily
+              - weekly
+              - monthly
+              - yearly
+            description: how often the quest can be repeated
+          MaximumTimeToComplete:
+            type: integer
+            description: the maximum time to complete the quest in hours
+          useLastSuccessAsEpoch:
+            type: boolean
+            description: whether to use the last success as the epoch for the next repeat
+          timezone:
+            type: string
+            description: offset from UTC e.g. -07:00
+          repeatLimit:
+            type: integer
+            description: the number of times the quest can be repeated, 0 for unlimited
+

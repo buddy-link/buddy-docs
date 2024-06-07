@@ -1,0 +1,125 @@
+---
+id: remove-the-specified-user-from-a-group
+title: "Remove the specified user from a group"
+description: "This endpoint removes a user from a group"
+sidebar_label: "Remove the specified user from a group"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1v4zYQ/SvCIIe2kC0ni154c7tJG7SbDWynPSyMYCKNLWIpUkuOkmgF/ffFULLjNB/AoumtJ8sU9d58vDdkBwWF3OuatbOgYFXqkJAtaqctJ54qd0shwaQJ5JONd1WCyda7poYU7idY4VdnJ1jrLTLdYTvJnQ+gOkBj3N1Hr7faBlCf4CdYp8Pi74QF+X8sfiAuXREX35/+ebo6hXX/PIG2TFuPQ7gd1Ngah8WZ8xXyX+TDkMbJdAYpcFsTKMC7cF17d99CCiVzPZCBgsuPyxWkkDtrKRfE1fDB+cXqdHFxGt95KsiyRhPTOrNKLZsbAfVW4V1QGiuljrr530ul5nnuGsvnRa+8M5TdNEXRZoH8rc5pEpeOunmtF87QBVbUQ59C4/XzyA9J7/AXtNXO9spgdVOgqpHL7GR2/PNk9m7y7jjbNDZmEbKjbhE7dxXI/9Kevz/zrvpNujade9tn2t66PJYwQP9CnT19aSjw5BaNLpCdl8iMgRRq9FgRDz3swGIlNYuiuI5/UtDSAwkPUhAg7akAxb6hFEJeUoWS8tiewF7brQSyBxO1Xetih1RGyXwX1lo2h9rZQLFxJ7OZ/DwWu5Rn1HgxiDtmkYQmzymETWNMGwtE90w2xHpJyp+pBfWy/FO4RdPQG9lAyvIy4aEdDnj/t8W/tsXrdX9qj331o01EgNWuoAUZYorW4RIUZFFmIeseTNNDClKRnasab0T4zHVQWdbdYKBL5LKPNF7jjRl0vXsxiHuDjWFQMK/1knFLksZagPPGa24jskemidGVZm23ktLkM7VCuj7cuhRnDRQvfbA3Hdb6DxIVje6932164t/nKokNlyNQ3gR21Sv7nNdfyQu1jvLjdukan8u3Q7GnY1+mA+X0MJSRZNwBKTwgXv0nYpsP+IH8U3kdsv/69mbaM4unhP0x44JCY3jF5twuKXdWRs5MJA/ablxsrWYj1Yr2SD6gxS1VZDmZX56LBvcj5Xg6m84EvXaBK4yH8qiDwWwJl5SEmnK90VQ8e5F4NJU7GTxMlr/zNjK2l+mes9qgtsMUMcM4FId8Gg4pGdDq4Lhap1C6wPK+i0a78qbvZflLQ15Ms34wXbRQoYM8F6A2aAK9ksAPi/HE+jF5KcSdiWx7MEIgHWfPQZy9XIlGK715FAPbw7m7D+TRIBsPpb7/BiJ8jjg=
+sidebar_class_name: "delete api-method"
+info_path: Api Documenation/Groups/group-management-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove the specified user from a group"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/groups/{group_name}"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint removes a user from a group
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"group_name","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"user_id","in":"header","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          User removed from group successfully
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,358 @@
+openapi: 3.0.0
+info:
+  title: Point Management API
+  version: 1.0.0
+
+servers:
+  - url: https://{basePath}
+    variables:
+      basePath:
+        default: ApiStage
+
+paths:
+  /points/{entityType}/{userID}:
+    options:
+      operationId: options-points-by-entity-and-user
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      parameters:
+        - $ref: '#/components/parameters/userIDPathParam'
+        - $ref: '#/components/parameters/entityTypePathParam'
+      security: [ ]
+
+    get:
+      summary: Get all points
+      description: "This endpoint returns all points"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - GET
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetPointsHistoryForUser.Arn}/invocations"
+      x-amazon-apigateway-repoint-validator: all
+      parameters:
+        - $ref: '#/components/parameters/userIDPathParam'
+        - $ref: '#/components/parameters/entityTypePathParam'
+      responses:
+        '200':
+          description: A list of points
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PointHistoryResponse'
+
+    post:
+      summary: Credit points to a user
+      description: "This endpoint returns all points"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - POST
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${CreditPointsToUser.Arn}/invocations"
+      x-amazon-apigateway-repoint-validator: all
+      parameters:
+        - $ref: '#/components/parameters/userIDPathParam'
+        - $ref: '#/components/parameters/entityTypePathParam'
+      requestBody:
+        $ref: '#/components/requestBodies/CreditPoints'
+      responses:
+        '200':
+          description: A list of points
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /points/{entityType}/{userID}/total:
+    options:
+      operationId: options-points-total-by-entity-and-user
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      parameters:
+        - $ref: '#/components/parameters/userIDPathParam'
+        - $ref: '#/components/parameters/entityTypePathParam'
+      security: [ ]
+
+    get:
+      summary: Get total points for a user
+      description: "This endpoint returns all points"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - GET
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetTotalPointsForUser.Arn}/invocations"
+      x-amazon-apigateway-repoint-validator: all
+      parameters:
+        - $ref: '#/components/parameters/userIDPathParam'
+        - $ref: '#/components/parameters/entityTypePathParam'
+      responses:
+        '200':
+          description: A list of points
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TotalPointsResponse'
+
+  /points/{entityType}/top:
+    options:
+      operationId: options-points-top-by-entity
+      responses:
+        "200":
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: { }
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      parameters:
+        - $ref: '#/components/parameters/entityTypePathParam'
+      security: [ ]
+
+    get:
+      summary: Get top points for entity type
+      description: "Will return a list of entities of the given type with the most points"
+      x-amazon-apigateway-cors:
+        allowOrigins:
+          - "*"
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - GET
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        connectionType: "INTERNET"
+        credentials:
+          Fn::Sub: "arn:aws:iam::${AWS::AccountId}:role/buddy/service-role/${ApiRoleName}"
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetTopForEntity.Arn}/invocations"
+      x-amazon-apigateway-repoint-validator: all
+      parameters:
+        - $ref: '#/components/parameters/entityTypePathParam'
+      responses:
+        '200':
+          description: A list of points
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TopEntityResponse'
+
+components:
+  parameters:
+    userIDPathParam:
+      name: userID
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The user ID of the user to get points for
+
+    entityTypePathParam:
+      name: entityType
+      in: path
+      required: true
+      schema:
+        type: string
+        enum:
+          - user
+          - group
+      description: The entity type of the user to get points for
+
+  requestBodies:
+    CreditPoints:
+      content:
+        application/json:
+          schema:
+            type: object
+            description: The request body for crediting points
+            required:
+              - value
+              - reason
+            properties:
+              value:
+                type: integer
+                description: the number of points to credit
+              reason:
+                type: string
+                description: the reason for crediting the points
+
+  schemas:
+    Point:
+      type: object
+      required:
+        - value
+        - reason
+        - created_at
+        - source
+      properties:
+        value:
+          type: integer
+          description: the number of points
+        reason:
+          type: string
+          description: the reason for the points
+        created_at:
+          type: string
+          description: the date the points were created
+        source:
+          type: string
+          description: the source of the points
+
+    PointHistoryResponse:
+      type: object
+      required:
+        - history
+      properties:
+        history:
+          type: array
+          description: this user's point history
+          items:
+            $ref: '#/components/schemas/Point'
+
+    TotalPointsResponse:
+      type: object
+      required:
+        - total
+      properties:
+        total:
+          type: integer
+          description: the total number of points for this user
+
+    EntityWithPoints:
+      type: object
+      required:
+          - name
+          - total
+      properties:
+        name:
+          type: string
+          description: the entity name
+        total:
+          type: integer
+          description: the total number of points for this entity
+
+    TopEntityResponse:
+      type: array
+      description: a list of entities with the most points
+      items:
+        $ref: '#/components/schemas/EntityWithPoints'
