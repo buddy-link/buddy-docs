@@ -1,0 +1,197 @@
+---
+id: get-bio-by-unique-link
+title: "Get bio by unique link"
+description: "Get bio by unique link"
+sidebar_label: "Get bio by unique link"
+hide_title: true
+hide_table_of_contents: true
+api: eJx1k8Fu2zAMhl/F4GkDlCYbdvItA4Zi2A5F252CHGiFidnKlipRaVLD7z7QTtJ0yXyxLZIi+f1kBwEjNiQUE5SLDriFEgJKDQZabAhKyC2/ZPrN7TMYiPSSOdIKSomZDCRbU4NQdiD7oN5JIrcb6PulOqfg20RJ7V9nM32tKNnIQdhrpodsLaW0zq7wgSIOxwasb4VaUX8MwbEdDNOnpEHdZVJfPZEVMBCiXiM8psyJ4tjERXkGXtE5krtcOba/aH/Vp2L/SDu5agvRr9nRHVvJ8XqK5C2jU3LpGiEDwuL06Dv7+wMr6PUx/3C6JSkq9kW1L0Y5Cjfq0ZDUfgUlbGjoX5UrYVqxn3bvwvVgIJHNkWX/oPBGPozNPGvAqTYMrCxO2qvZR347CjOMR024oggGdhNs8M23Ewy8QaFX3E8wS3287DU98Gb7bWiV27UfEr23XMzvfoKBLcU0dvnlZnYzG9j6JA0OWh8K+S+AD5xOfQjtZBoccqvX5ejUNsJZqKpgoDyb66WB2idRY9dVmOhPdH2vxy+Z4h7KxdLAFiNjpcUvOlhx0u8VlGt0iS7qOE0wfLo/rMznAsz1+o68WiW/RZf1Dww861ie71+/7M0Rv1YxOsytpSBnoRc7o8t4mpTbH4/Q938B1B9dPw==
+sidebar_class_name: "get api-method"
+info_path: Api Documenation/Buddy in Bio/bio-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get bio by unique link"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/bio/{uniqueLink}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get bio by unique link
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"path","name":"uniqueLink","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Successful operation
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"username"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"walletPublicKey"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"bioText"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"profilePicture"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"socialLinks"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"username\": \"string\",\n  \"walletPublicKey\": \"string\",\n  \"bioText\": \"string\",\n  \"profilePicture\": \"string\",\n  \"socialLinks\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

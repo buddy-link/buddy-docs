@@ -1,0 +1,164 @@
+---
+id: add-a-user-to-a-group-as-a-group-admin
+title: "Add a user to a group (as a group admin)"
+description: "This endpoint adds a user to a group"
+sidebar_label: "Add a user to a group (as a group admin)"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk2P2zYQ/SvCIIekkD92g154c4NNuyiyWdje9rAxgrE4azOhSIWk1lYM/fdgSNnWfnhRFOmtutimyXkzw/feaAeSfOFUFZQ1IGC+Vj4jIyurTMhQSp9hVntyWbAZZitn6wpy2A6wxO/WDLBSKwy0wWZQWOdB7AC1tpuPTq2U8SBu4RdY5GnxD0JJ7tHiBwprK+Pi9cfZHBbt8+GVCbRymPLcQYWNtijfW1di+IucT/mfD8eQQ2gqAgG48Z8rZ7cN5LAOoUpQIBJQDoU1hgqOOE8HLq/mF9Ori/ifI0kmKNSxqPdGiFm95KDOCNx4obAU4tVu8vdMiElR2NqES9kKZzWNlrWUzciTu1cFDeLSq92kUlOr6QpLaqHNoXbq+cjHovfxp7RS1rRCY7mUKCoM69H5+OzXwfjt4O3Z6K42sQrPKFLeeHJz+ztf1XDiTDtS5t4WsXMe2hPtdfStJh8G96iVxGAdJ6Q15FChw5JCurgdGCy5VZEJn+OPHBS3nrOCHDiQciRBBFdTDr5YU4lcaXcrPjhlVtC2i7SZfPjNyoZ3POQi15FRiUoz+ZbEdCT5kIiP0QprApkQeVhVWqWyR198Ys2TZOzyCxWBq3S2IhcUxeuOqM/knMMGtaZwXS+1Kv6k5rm6+OHMfGWNT/HOx+MT9aWafF0U5P1drXUTr4i2gYyPN8ZN/8pIp1WXwz3qmn6K+tr8Jbi+Cnuo/6vx36rx5XY/VeWh6VGdrKFy38fK+shk1qGAUZSIH+2OSm0hB27DXsq10yDiXXgxGu2W6Okaw7qNIE7hUif27v9IFL7DWgcQMKnULOCKuIgFBy5qp0ITIzsMNNCqVEGZFRc0+EoNgy76W2esxgRx6sBBXVgpllu+95/tftPeftaR3idmE9Zh3QUqah9s+cI+69R3cgytIudCM7O1K/hsavWwu5Vhghz2U+lAuh2QwzHizX/DsBTfk3tKrj76u5+voAMyC4nRHyJOydc6zIO+NDMqrGGXGUdrZDeeHp3/Yotlpannu3svfcZue1aszJ2NDFGBT0PUWPYBDa6oJBOyyfUlU/lgR2fD8XDMJ1kpJcaJ0NFpIuXTF53sNfrDd5SlMm8gf2jiu+PE+afvTh1FAm3DqNKoTLIfnXyUVXabpiv7uujN2UUOa5a4uIVdFOuN023Ly99qciy8xVG4UYZSef4uQdyh9vRC7q+n3SB9k51KcS9E0/RMCPLOvXp5tvwK18nxOLzeJaxBNPeeiz2e0g8srRsNy+79oLQyqgs3PPpxAwI+wSdOwlaJ89FKNvyh0axqticBKS4/PwC4zM4d
+sidebar_class_name: "post api-method"
+info_path: Api Documenation/Groups/group-management-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a user to a group (as a group admin)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/groups/{group_name}"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint adds a user to a group
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"group_name","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          User email to be added to a group
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"email"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"walletPublicKey"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          User added successfully
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
