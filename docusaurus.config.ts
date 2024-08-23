@@ -7,7 +7,7 @@ import { themes } from "prism-react-renderer";
 function createSpecDocConfig(name: string, fileLocation: string) {
   return { // the <id> referenced when running CLI commands
     specPath: "openapi/" + fileLocation, // path to OpenAPI spec, URLs supported
-    outputDir: "docs/Api Documenation/" + name, // output directory for generated files
+    outputDir: "docs/Api Documentation/" + name, // output directory for generated files
     // sidebarOptions: { // optional, instructs plugin to generate sidebar.js
       // groupPathsBy: "tag", // group sidebar items by operation "tag"
     // }

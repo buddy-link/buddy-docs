@@ -1,0 +1,224 @@
+---
+id: create-a-new-group
+title: "Create a new group"
+description: "This endpoint creates a new group"
+sidebar_label: "Create a new group"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1v4zYQ/SvCIIe2kC0ni154c4NsGxSbDWxve8gGwVia2NylSC45iq019N8LknKsfKIt0ltzMUKR82aG773hDirypZOWpdEgYLGWPiNdWSM1Z6UjZPIZZpo22cqZxkIO2xHW+N3oEVq5QqYNtqPSOA9iB6iU2Xx0ciW1B3EFP8F1nhZ/I6zIPVr8QLw2VVy8/DhfwHX3fHipmVYOU5I7sNgqg9V742rkP8j5lPzJeAI5cGsJBODG31hnti3ksGa2CQpEAsqhNFpTGSIu0oHzi8XZ7OIsfnNUkWaJKhb1Xgsxb5YhqNMCN15IrIU42k3/nAsxLUvTaD6vOuGMomLZVFVbeHJ3sqRRXDraTa2cGUUXWFMHXQ6Nk89HPhS9jz+jlTS6EwrrZYXCIq+Lk8nxz6PJu9G74+K20bEKXxztTuN9/RruaTx1uiukvjNlbJuH7oXeOvrWkOfRHSpZIRsXslEKcrDosCZOt7YDjXXoU+PJ3cgKcpCh6et4r5BDiCMdVSDYNZSDL9dUY6iyvxHPTuoVdN112kyefzFVG3Y8JGEsIAtwGZtsST0Pq2dASqOZNEfqWatkKrb44hNRnuRgll+o5AeBriAS+yaWl/f/yBpXFGhqnbHkWFJkwmDn07oenn2m7hxYsgpLg4uKLei68NWRt0b7BHUymbzUmb4dmW/Kkry/bZRq4e178c+qH1QXswxUj3V1OdCWSfvIwkCkr9SCeNlGcrhD1dCb2EmXvwY3tJUB6v/28q/s5fVeP7WZ+45HuwmuUO+baI3naEC8BgFFJF4gRih7b0eNU8F+mK0XRbFboqdL5HUX4zqJS5VYu/+Q1HSLjWIQMLVyzkGnXfQjT2XjJLcxskOmkZK1ZKlXoYbRV2oD6PVw6zzoKUG8dOBeJGjl7xSo0nvodr/piYs+1zpseN0HKhvPpn5ln3HyO7kALSPHuJ2bxpXhbOruuL+IcYIcD1PpQfodkMMh4qf/hFHTFN+Te8qnIfrp2yvmHjkIJ6A/RJyRbxQvWJ3rOZVGB1eZRDMLfjo7jK+zLdZW0WN/3Pvio6EwGBZS35pIkaFrZh9Q44pq0pxNL88Dl+/953g8GU/CyaCOGqOp92BJmY/eaQ9Gx+4wHv7WI6+nAtOWC6tQ6mQrKvljUFM/K3xw33XQq7iCXZThJ6e6Lix/a8gFSV0fJBlVlO/5HtRWSR8+VCBuUXl6Je8fZv2g+jF7KcPkP4cnyt5h4GBOpyneKPrywIMej8zDiWlZkuVX9w7Nq58Ay/5tU5sqigo3YdTiBgR8hs8AORibqB4dZBN+FOpVk4iS4oa/vwCTZw/Z
+sidebar_class_name: "post api-method"
+info_path: Api Documentation/Groups/group-management-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a new group"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/groups"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint creates a new group
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"user_id","in":"header","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Group name to be created
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"group_name"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"group_image"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Group created successfully
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"group_name"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"group_name\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

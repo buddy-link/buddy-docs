@@ -1,6 +1,6 @@
 {
-  "label": "Legacy SDK",
-  "position": 99,
+  "label": "Buddy.Pay SDK",
+  "position": 2,
   "link": {
     "type": "generated-index",
     "description": "The SDK facilitates developers in initiating their journey with Buddylink's on-chain tools. Its API is centered around typical scenarios, aiming to ensure an effortless development process, all while enabling external parties to integrate seemlessly."

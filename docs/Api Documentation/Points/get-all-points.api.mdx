@@ -1,0 +1,263 @@
+---
+id: get-all-points
+title: "Get all points"
+description: "This endpoint returns all points"
+sidebar_label: "Get all points"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVsFu20gM/RWBCNDdhRw5KfYyNwNN0hyaBkm6ewiMgpZoe7qjGXWGSuIV9O8LjmRbjpPWSK97sk2N3jySj49uoKCQe12xdhYU3C11SMgWldOWE09cexsSNCaJkQApPI2wxH+dHWGlF8j0iKtR7nwA1QAa4x4/e73QNoC6hz9gmnbBj4QF+WfBT8RLV8TgxdkdTNuX0bVlWnjsKDZQ4co4LM6dL5H/Ih866qfHY0iBVxWBAnwMXyvvnlaQwpK56m4CBdefb+8ghdxZS7kg3nUvXF7dnd1cncVnngqyrNHEnM6tUrf1TEC9VfgYlMZSqaNm8vetUpM8d7Xly6JV3hnKZnVRrLJA/kHnNIqho2ZS6Rtn6ApLaqFNofb6ZeRt0mv8G1poZ1tlsJwVqCrkZXY6PvlzNH4/en+SzWsbswjZUXNBfB2b9FEHdn517vyXQP544m2bafvg8ljCAO0rdfYUmzx6QKMLZOeFmTGQQoUeS+KugQ1YLKVmdSB/+QFS0FJ/oQYpePpea08FKPY1pRDyJZUo6fatCey1XUgZnkuPEkFMLj8kbp7w+ie7ZEHc6y+ZOw9tuqEgfeJV7OHbaKRAti5FgXIZpLDwrq6iFPfpdbclgvAzilOhECpnA0UVnY7H8rGLOUmMDixQm+nKnWWyHIepqozuepZ9C53299JA71FErpnKMIi72TfKeacQ97DshCHzV3lXkWfdsVs/2MfdJcxiD5Lyu9BRTtZvHsjgAU1NMYaSURw2ZCq+opwMrvY57dPr3tpCR0OI3XpOjxJblzPyg5q2m9teaP7++91ZaWLs7xZkwPQgoAKZBhDJI3lKehDB65M9CKs7u9bcmlObAms28m4cfGj3Qr0V3PRSlBPxED0x2RDdQAb6H1qBet3Z020HftXhZXZfv23o9INL/3f8X3b8H9d93/k31Y8bQOysXBd0QRxXAi9BQdaJMWu2TtxmTbcZWhlp8g/rtVF7Ayo2J6gsa2YY6Bp52cbLvMaZ6cZ9/aAzzDnWhsUsK33LuIganorZz10cnqHck09ocUElWU4m15cCvFHLyfH4eCy9qFzgEqMd9Fvkgnj3P87OBDZbUz7k/1GvR6YnziqD2nb9N52QJat72BxWOwtM9Rt1msLSBZaTTSzTF2/aVsLfaxKbvp9uSxZLW+gg3wtQczSBfpDBbze9Hf+eHL5xX8lqPXp2NdALpL3Q+mREeW+md/jGfRPFQfVbWfnL6GEDS5zkOVU8nIbnS3lnNMTj2vY/VULtJw==
+sidebar_class_name: "get api-method"
+info_path: Api Documentation/Points/point-management-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get all points"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/points/{entityType}/{userID}"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint returns all points
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"userID","in":"path","required":true,"schema":{"type":"string"},"description":"The user ID of the user to get points for"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"entityType","in":"path","required":true,"schema":{"type":"string","enum":["user","group"]},"description":"The entity type of the user to get points for"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          A list of points
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                history
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              this user's point history
+                              
+                              
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"value"}
+                              required={true}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","description":"the number of points"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"reason"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"the reason for the points"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"created_at"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"the date the points were created"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"source"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"the source of the points"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"history\": [\n      {\n        \"value\": 0,\n        \"reason\": \"string\",\n        \"created_at\": \"string\",\n        \"source\": \"string\"\n      }\n    ]\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

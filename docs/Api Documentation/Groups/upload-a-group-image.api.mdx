@@ -1,0 +1,170 @@
+---
+id: upload-a-group-image
+title: "Upload a group image"
+description: "This endpoint will return a presigned url to upload a group image. It will also set the group image for the group"
+sidebar_label: "Upload a group image"
+hide_title: true
+hide_table_of_contents: true
+api: eJztlk1vGzcQhv/KYuBDW6y0soNeeBNaJxGKOIYktwdDCEa7I4kJl2TIoW1lsf+9IHf14Q+5RZGil+oiicuZIWfeZ2YbqMiXTlqWRoOA+Ub6jHRljdSc3UulMkccnM4ws468XGuqsuBUxiYLVhmsMszWzgSbyRrXNMwmvR0qbzJPnPGGjndkK+MOa5DDwwBr/Gb0AK1cI9M9bgelcR5EA6iUuf/o5FpqD+IWfoJF3i2+J6zIPVn8QLwxVVp8dzmHRfuyd6mZ1g67OzdgcRsv8ta4Gvl3cr7LxcVwBDnw1hIIwHv/yTrzsIUcNsy2iwQCrj/O5pBDabSmMnqcdwaTq/nl9OoyPXNUkWaJKt3prRZiFpbRqdMC772QWAtx1oz/mAkxLksTNE+qVjijqFiGqtoWntydLGmQls6asZVTo+gKa2qhzSE4+bLnw6V3/qe0lka3QmG9rFBY5E1xMTr/eTB6M3hzXqyCTrfwxVlzk+r7LpZpkmo7drotpL4zZcqdh/ZEgh19DeR5cIdKVsjGxSMpdaLYaOXgC20H3gRXxty9vxz/ejn9i90xhnRUgWAXKAeLDmviThMNaKyjqySyT+lPDjKWNd4Ycnhq7ssN1Riz2Ffcs5N6DW27iJu9NdpTqt/FaBS/HoMzC2VJ3q+CyoylXltJFkyak5StVbJLXPHZd8p7FtQsP1PJkIN10Q3LLuQevRunXjhiDomslx92nxzogUn7VLaYny+0BXGavRzuUAX6Hgy2+WvRjlk8Cvo/k/+cydcT/pzNfdoTo69bP2H1YNoz+/es9/Dt7SOEkbR6V0NrfOIg0iqgSBz7ojnw3BZJ9JBDLMQO+xAZSGrwoiiaJXq6Rt60KZKTuFQdUbsHHckrDIpBwNjKGUenbcLeUxmc5G3y7JBpoGQtWer17iYx6OJ46ywS3YU4ZbAnFK38jaJ4+171sNu0a1WbxNepPhh40zsqg2dTv7LPOPmNXAwtk+p5O9v12i7hw14Vwy7k8PgofZB+B+Rw8Hjzr2h83Pn35J6L+zj6L9+f4X3kiHKM/jjilHxQPGc10TMqjY5tbpS6q9Qrk0orWcVsJUKzD6hxTTVpzsbXk6jBfSc7H46Go+g9Cr3GNA56Hdy88F4F+eOB0xxGy3/y0taLgumBC6tQ6q7lqa53R65uu9kbR4l4PIXTfRY5bCLi4haahOmNU20bl78GchG5xQHZBGAlffxdgVih8vRKQn6Y9v3lx+zUUXcI6u1RD4O8711H523jS2QP4mFujsuSLB93zqfT/VEzSwOpbf8EIbb/Ww==
+sidebar_class_name: "post api-method"
+info_path: Api Documentation/Groups/group-management-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Upload a group image"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/groups/{group_name}/image"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint will return a presigned url to upload a group image. It will also set the group image for the group
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"group_name","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Successful operation
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"presignedUrl"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"imageUrl"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"presignedUrl\": \"string\",\n  \"imageUrl\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

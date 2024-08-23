@@ -1,0 +1,220 @@
+---
+id: retrieve-currently-active-members-of-a-group
+title: "Retrieve currently active members of a group"
+description: "This endpoint retrieves all members of a group"
+sidebar_label: "Retrieve currently active members of a group"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVktv4zYQ/ivCIIe2kC0ni154MxbZNGiTDWxvewiMYCyNbe5SpJYcOtEK+u8FKSm28yoKpLf6YpuP+ebxfTNsoCCXW1mxNBoELLbSJaSLykjNiSW2knbkElQqKalckXWJWSeYbKzxFaTwMMISfxg9wkpukOke61FurAPRACpl7j9buZHagbiFX2CZdou/ERZknyxeEW9NERcvzhewbF+2LjXTxmLncAMV1spg8cnYEvlPsq4L5Gw8gRS4rggE4L27q6x5qCGFLXPVIYGAm8/zBaSQG60pDxYX3YXL68X57Po87lkqSLNEFWP6pIWY+1UwarXAeycklkKcNNO/5kJM89x4zZdFK6xRlK18UdSZI7uTOY3i0kkzreTMKLrGklpoU/BWvmx5H/Rgf0YbaXQrFJarAkWFvM3OJqe/jiYfRh9Os7XXMQqXnTQXxB+9taRZ1dOc5Y4uQsmuuiKOp1a3mdQ7k8dMOmhfSbel754cj3aoZIFsbHBQKUihQoslcVfHBjSWIXWRGHfxTwoylCJ4CSkEQ9JSAYKtpxRcvqUSQ+R9lRxbqTfQtstw2FVGO4o5P5tMwtcxU+c+z8m5tVeJqajnQywlk+ZIv6pSsgsv++o6tjwDNauvlPORe7fQMz0ws7LBOsvOk2Fjfx+txUAryVS6f7LrHdk7WQRiGkZ1F1X2Asxw7nluntzcH4iqIAtt+KTAklVY7sr9h3Q87NADk3ax5KFq36gG8bqKU9ih8vQeam7Tt9AOVX0A+r+630vdb6f/ucofixDVHjRZDnndEEf58xYEZFHwLmv2wm8hhZCVoTN4q0DE0jiRZc0KHd0gb9uIYSWuVEf7YaMT+xq9YhAwreSccUMhhmUwnHsruY6WLTKNlCwlS70J8Yy+UR1Al4dH50H0HcRrF/Z6ruTvFJjUt7OH4dDQzbaR7K9MPvS87Q3l3rEp3zhnrPxBNkDLSEGu58bbPNztMj3uizLuIMeHrvQg/QlIYW/xy39CuGln35F9zq1D9I/vL6hH5KCrgH6MOCPnFS9YXeo55UaHnjOJrU7qtYml7ZthlEhyhRo3VJLmZHpzGTj42FZOx5PxJFivjOMS48ToeTDrn0JJPsguwai7l59FR7Oq2U+lf//A6ivN9MBZpVDqrqmorjsGsdx2Mzc0a3EwfZcpbI3jsN9EzX2xqm3D8ndPNuhnuddfVFMhXfhdgFijcvRGFD/N+qn2c/Kai4OedH3QSiDte9CBn2146PWq2k+kaZ5TxYdd6Ok0P2pJYcS07d8v2MiS
+sidebar_class_name: "get api-method"
+info_path: Api Documentation/Groups/group-management-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve currently active members of a group"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/groups/{group_name}"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint retrieves all members of a group
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"group_name","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Successful operation
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                members
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"user_id"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"total_points"}
+                              required={true}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"members\": [\n    {\n      \"user_id\": \"string\",\n      \"total_points\": 0\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
