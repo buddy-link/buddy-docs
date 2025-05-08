@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Buddy Pay
+# Buddy Sales
 
 [![npm version](https://badge.fury.io/js/buddy.pay.svg)](https://badge.fury.io/js/buddy.pay)
 ![NPM License](https://img.shields.io/npm/l/buddy.pay)
